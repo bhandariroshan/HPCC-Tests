@@ -1,0 +1,60 @@
+KUBERNETES_VERSION="1.19.6"
+SUBSCRIPTION="us-hpccplatform-dev"
+TAGS="business_unit=research-and-development cost_center=st660 environment=development location=$location market=us product_group=dev production_name=hpccsystems project=kube-scheduler-test resource_group_type=app sre_team=hpcc_platform subscription_id=module.subscription.output.subscription_id subcription_type=nonprod"
+
+RESOURCE_GROUP="aks-scheduler-ming"
+REGION="eastus"
+ZONES=1
+#ZONES="1 2 3"
+AKS_NAME="aks-ming-${REGION}"
+DEFAULT_NODE_VM_SIZE="Standard_D4_v3"
+DEFAULT_NODE_COUNT=2
+DEFAULT_MIN_COUNT=2
+DEFAULT_MAX_COUNT=4
+DEFAULT_AUTOSCALER="--enable-cluster-autoscaler"
+DEFAULT_NP_LABELS="vm=D4v3 name=default"
+DEFAULT_NP_NAME="defaultnp"
+DEFAULT_TAINTS=""
+
+OS_TYPE=Linux
+GEN_SSK_KEYS="--generate-ssh-keys"
+
+STORAGE_ACCOUNT="kube-scheduler-ming"
+
+# Node Pools
+#====================
+#https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/
+
+# Node Pool 1 (NP1)
+#------------------
+NP1_NAME="npone"
+NP1_LABELS="vm=D4Av4 name=${NP1_NAME}"
+#NODE_VM_SIZE="Standard_D4A_v4"
+NP1_NODE_VM_SIZE="Standard_D4A_v4"
+
+#SKU_NAME="Standard_LRS"
+NP1_SKU_NAME="Standard_LRS"
+NP1_NODE_COUNT=2
+NP1_MIN_COUNT=2
+NP1_MAX_COUNT=4
+
+NP1_TAINTS=""
+NP1_AUTOSCALER="--enable-cluster-autoscaler"
+
+
+# Node Pool 2 (NP2) 
+#------------------
+NP2_NAME="nptwo"
+NP2_LABELS="name=${NP2_NAME} test=taint"
+
+#https://docs.microsoft.com/en-us/azure/aks/gpu-cluster
+NP2_NODE_VM_SIZE="Standard_D4A_v4"
+
+NP2_SKU_NAME="Standard_LRS"
+NP2_NODE_COUNT=2
+NP2_MIN_COUNT=2
+NP2_MAX_COUNT=4
+
+#--aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
+NP2_TAINTS="--node-taints name=nptwo:NoSchedule"
+NP2_AUTOSCALER="--enable-cluster-autoscaler"
