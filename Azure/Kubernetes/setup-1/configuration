@@ -1,0 +1,11 @@
+resource_group="aks-ecl-benchmark-tim"
+aks_name="${resource_group}-${location}"
+
+kubernetes_version="1.19.6"
+subscription="us-hpccplatform-dev"
+location="eastus"
+node_vm_size="Standard_D16a_v4"
+tags="business_unit=research-and-development cost_center=st660 environment=development location=$location market=us product_group=dev production_name=hpccsystems project=aks-ecl-benchmark resource_group_type=app sre_team=hpcc_platform subscription_id=module.subscription.output.subscription_id subcription_type=nonprod"
+sku_name="Standard_LRS"
+
+#storage_account="arc-gitops-sa"
