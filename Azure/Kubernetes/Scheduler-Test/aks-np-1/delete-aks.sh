@@ -12,3 +12,9 @@ then
     echo "Delete Resource group ${RESOURCE_GROUP}."
     time az group delete --name ${RESOURCE_GROUP} --yes
 fi 
+AKS_CONTEXT=${AKS_NAME}-admin
+kubectl config get-contexts | grep -q ${AKS_CONTEXT}
+if [ $? -eq 0 ]
+then
+  kubectl config delete-context $AKS_CONTEXT
+fi

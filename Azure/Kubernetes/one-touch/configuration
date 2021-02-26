@@ -1,0 +1,37 @@
+# HPCC Settings
+#-----------------------
+DEPLOY_DIR=~/tmp
+IMAGE_VERSION=7.12.30-1
+HPCC_BRANCH=community_7.12.30-1
+HPCC_STORAGE=default  # default, hpcc-azurefile
+HPCC_CLUSTER_NAME=myhpcc
+
+
+# Kubernetes Cluster Settings
+#-----------------------------
+RESOURCE_GROUP="aks-one-touch"
+LOCATION="eastus"
+AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
+
+KUBERNETES_VERSION="1.19.6"
+SUBSCRIPTION="us-hpccplatform-dev"
+NODE_VM_SIZE="Standard_D16a_v4"
+NODE_COUNT=2
+MIN_COUNT=2
+MAX_COUNT=10
+
+TAGS="business_unit=research-and-development \
+      cost_center=st660 \
+      environment=development \
+      location=$location \
+      market=us \
+      product_group=dev \
+      production_name=hpccsystems \
+      project=aks-one-touch \
+      resource_group_type=app \
+      sre_team=hpcc_platform \
+      subscription_id=module.subscription.output.subscription_id \
+      subcription_type=nonprod"
+
+SKU_NAME="Standard_LRS"
+
