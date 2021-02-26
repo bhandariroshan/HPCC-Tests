@@ -3,7 +3,7 @@ WORK_DIR=$(dirname $0)
 source ${WORK_DIR}/configuration
 
 # Set subscription
-az account set --subscription $subscription
+az account set --subscription $SUBSCRIPTION
 
 # Create ssh keys
 if [ ! -e ~/.ssh/id_rsa ] || [ ! -e ~/.ssh/id_rsa.pub ]  
@@ -12,30 +12,30 @@ then
 fi
 
 # Create Resource Group
-rc=$(az group exists --name $resource_group)
+rc=$(az group exists --name $RESOURCE_GROUP)
 if [ "$rc" = "true" ]
 then
-    echo "Resource group $resource_group already exists."
+    echo "Resource group $RESOURCE_GROUP already exists."
     exit 1
 fi
-az group create --name $resource_group --location $location --tags $(eval echo ${TAGS} )
+az group create --name $RESOURCE_GROUP --location $LOCATION --tags $(eval echo ${TAGS})
 
 # Create a Kubernetes Cluster
 az aks create  ${GEN_SSK_KEYS} \
-   --resource-group $resource_group --name $aks_name \
-   --node-vm-size ${node_vm_size} \
-   --node-count 2 \
-   --min-count 2 \
-   --max-count 4 \
+   --resource-group $RESOURCE_GROUP --name $AKS_NAME \
+   --node-vm-size ${NODE_VM_SIZE} \
+   --node-count ${NODE_COUNT} \
+   --min-count ${MIN_COUNT} \
+   --max-count ${MAX_COUNT} \
    --enable-cluster-autoscaler \
    --enable-managed-identity \
-   --kubernetes-version $kubernetes_version \
-   --location $location
+   --kubernetes-version $KUBERNETES_VERSION \
+   --location $LOCATION
 
 # Register Kubernetes cluster to local configure file
 az aks get-credentials \
-   --resource-group $resource_group \
-   --name $aks_name \
+   --resource-group $RESOURCE_GROUP \
+   --name $AKS_NAME \
    --admin \
    --overwrite-existing
 
@@ -45,7 +45,7 @@ az aks get-credentials \
 #{
 #   az storage account create `
 #      --name $storage_account `
-#      --resource_group $resource_group `
+#      --RESOURCE_GROUP $RESOURCE_GROUP `
 #      --location $location `
 #      --sku $sku_name
 #}
