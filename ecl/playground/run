@@ -10,10 +10,11 @@
 #eks-hpcc-1
 
 # eks-hpcc-1
-server=ab619426a27cf48cc8295221b53958ba-716284310.us-east-1.elb.amazonaws.com
+#server=ab619426a27cf48cc8295221b53958ba-716284310.us-east-1.elb.amazonaws.com
 
-#server=localhost
+server="20.62.178.25"
 
 
 #ecl run thor -s ${server}  <ecl file path>
-./test-playground.sh -d ~/work/HPCC/Cloud/HPCC-Platform -s $server -t "hthor roxie thor" | tee -a envoy-7.10.x.out 
+rm -rf ~/tmp/playground.out 
+./test-playground.sh -d ~/tmp/HPCC-Platform -s $server -t "hthor roxie-workunit thor" | tee -a ~/tmp/playground.out 
