@@ -1,6 +1,18 @@
 KUBERNETES_VERSION="1.19.6"
 SUBSCRIPTION="us-hpccplatform-dev"
-TAGS="business_unit=research-and-development cost_center=st660 environment=development location=$location market=us product_group=dev production_name=hpccsystems project=kube-scheduler-test resource_group_type=app sre_team=hpcc_platform subscription_id=module.subscription.output.subscription_id subcription_type=nonprod"
+TAGS=" \
+  business_unit=research-and-development \
+  cost_center=st660 \
+  environment=development \
+  location=$location \
+  market=us \
+  product_group=dev \
+  production_name=hpccsystems \
+  project=kube-scheduler-test \
+  resource_group_type=app \
+  sre_team=hpcc_platform \
+  subscription_id=module.subscription.output.subscription_id \
+  subcription_type=nonprod"
 
 RESOURCE_GROUP="aks-scheduler-ming"
 REGION="eastus"
