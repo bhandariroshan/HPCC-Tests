@@ -17,7 +17,17 @@ For v1.9.1 there are some changes:
 
 addons install issue for Kiali:<br/>
 unable to recognize "addons/kiali.yaml": no matches for kind "MonitoringDashboard" in version "monitoring.kiali.io/v1alpha1"<br/>
-Fix: splite kiali.yaml to two files. The first one has top "kind: CustomResourceDefinition" to a different file, such as crd.yaml. Make sure change "v1beta" to "v1". The rest is kept in kiali.yaml. Run:
+Fix: splite kiali.yaml to two files. The first one has top "kind: CustomResourceDefinition" to a different file, such as crd.yaml. Make sure change "v1beta" to "v1". The rest is kept in kiali.yaml.  Add schema:
+```sh
+ versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+```
+Run:
 ```sh
 #kubectl apply -f crd.yaml
 #kubectl apply -f kiali.yaml
@@ -54,3 +64,7 @@ Set following in hpcc/values.yaml
  misc:
     postJobCommand: "curl -sf -XPOST http://127.0.0.1:15020/quitquitquit"
 ```
+
+## Turn on/off sidecar injection
+https://istio.io/latest/docs/ops/configuration/mesh/injection-concepts/ 
+https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/
