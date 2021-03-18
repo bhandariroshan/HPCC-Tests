@@ -1,0 +1,168 @@
+Playground ECL sample Tests  HPCC 7.12.30-1  on AKS with diskfile storage
+-------------------------------------------------------------------------
+03/03/2021
+
+hthor
+============
+ COUNT NAME                                     RESULT        USER-END      SERVER-END      WU-EXEC      COMPILE
+     1 APPLY_Example                            [ OK ]     [ 31.585s ]     [ 30.723s ]   [ 5.648s ]    [ .594s ]
+     2 AggregateSET_Example                     [ OK ]     [ 23.003s ]     [ 22.238s ]   [ 4.270s ]    [ .575s ]
+     3 Crosstab_Example                         [ OK ]     [ 21.277s ]     [ 20.566s ]   [ 1.699s ]    [ .543s ]
+     4 DEDUP_ALL_Example                        [ OK ]     [ 22.535s ]     [ 21.825s ]   [ 3.577s ]    [ .580s ]
+     5 DEDUP_Example                            [ OK ]     [ 22.897s ]     [ 22.178s ]   [ 3.907s ]    [ .613s ]
+     6 DENORMALIZE_Example                      [ OK ]     [ 22.172s ]     [ 21.460s ]   [ 2.574s ]    [ .559s ]
+     7 DICTIONARY_Example                       [ OK ]     [ 22.375s ]     [ 21.650s ]   [ 3.723s ]    [ .643s ]
+     8 DISTRIBUTE_Example                       [ OK ]     [ 19.748s ]     [ 18.889s ]   [ 2.083s ]    [ .634s ]
+     9 ENTH_Example                             [ OK ]     [ 23.275s ]     [ 22.584s ]   [ 3.616s ]    [ .545s ]
+    10 EVALUATE_Example                         [ OK ]     [ 25.657s ]     [ 24.828s ]   [ 7.302s ]    [ .689s ]
+    11 EmbedJava                                [ OK ]     [ 28.790s ]     [ 27.632s ]   [ 7.287s ]    [ .724s ]
+    12 FUNCTIONMACRO_Example                    [ OK ]     [ 22.667s ]     [ 21.809s ]   [ 2.904s ]    [ .506s ]
+    13 FUNCTION_Example                         [ OK ]     [ 20.618s ]     [ 19.863s ]   [ 1.976s ]    [ .538s ]
+    14 FunctionParmPassing_Example              [ OK ]     [ 22.555s ]     [ 21.741s ]   [ 2.340s ]    [ .282s ]
+    15 GRAPH_Example                            [ OK ]     [ 22.163s ]     [ 21.467s ]   [ 2.206s ]    [ .542s ]
+    16 GROUP_Example                            [ OK ]     [ 22.735s ]     [ 21.908s ]   [ 4.046s ]    [ .623s ]
+    17 ITERATE_Example                          [ OK ]     [ 21.973s ]     [ 21.228s ]   [ 2.480s ]    [ .526s ]
+    18 JOIN_ATMOST_LIMIT_Example                [ OK ]     [ 22.142s ]     [ 21.136s ]   [ 1.999s ]    [ .560s ]
+    19 JOIN_Example                             [ OK ]     [ 25.124s ]     [ 24.357s ]   [ 5.314s ]    [ .667s ]
+    20 JOIN_dupes_example                       [ OK ]     [ 19.838s ]     [ 19.047s ]   [ 1.766s ]    [ .539s ]
+    21 KEYED_JOIN_Example                       [ OK ]     [ 30.972s ]     [ 28.932s ]  [ 10.432s ]    [ .796s ]
+    22 MACRO_Example                            [ OK ]     [ 21.650s ]     [ 20.947s ]   [ 2.417s ]    [ .542s ]
+    23 MERGEJOIN_Example                        [ OK ]     [ 20.107s ]     [ 19.402s ]   [ 2.741s ]    [ .581s ]
+    24 MERGE_Example                            [ OK ]     [ 21.676s ]     [ 20.948s ]   [ 2.691s ]    [ .548s ]
+    25 NORMALIZE_Example                        [ OK ]     [ 22.798s ]     [ 22.082s ]   [ 2.445s ]    [ .543s ]
+    26 NORM_DENORM_ChildDatasets_Example        [ OK ]     [ 23.746s ]     [ 22.997s ]   [ 4.162s ]    [ .717s ]
+    27 NormDeNormWithROW_Example                [ OK ]     [ 22.858s ]     [ 22.163s ]   [ 3.853s ]    [ .728s ]
+    28 PARSE_Example                            [ OK ]     [ 22.595s ]     [ 21.755s ]   [ 3.433s ]    [ .657s ]
+    29 PROCESS_Example                          [ OK ]     [ 19.493s ]     [ 18.717s ]   [ 1.967s ]    [ .549s ]
+    30 PROJECT_Example                          [ OK ]     [ 22.965s ]     [ 22.228s ]   [ 2.167s ]    [ .540s ]
+    31 RANGE_Example                            [ OK ]     [ 23.000s ]     [ 22.042s ]   [ 2.897s ]    [ .539s ]
+    32 ROLLUP_Example                           [ OK ]     [ 23.892s ]     [ 23.139s ]   [ 3.307s ]    [ .589s ]
+    33 ROWDIFF_Example                          [ OK ]     [ 20.389s ]     [ 19.570s ]   [ 2.072s ]    [ .548s ]
+    34 SAMPLE_Example                           [ OK ]     [ 25.045s ]     [ 24.260s ]   [ 4.185s ]    [ .567s ]
+    35 SORT_Example                             [ OK ]     [ 25.240s ]     [ 24.491s ]   [ 5.394s ]    [ .618s ]
+    36 ScopeResolutionOperator                  [ OK ]     [ 21.447s ]     [ 20.470s ]   [ 2.080s ]    [ .539s ]
+    37 SimpleJava                               [ OK ]     [ 21.736s ]     [ 20.920s ]    [ .966s ]    [ .483s ]
+    38 VARIANCE_Example                         [ OK ]     [ 26.541s ]     [ 25.658s ]   [ 6.463s ]    [ .837s ]
+    39 Viz_BarChart_Example                     [ OK ]     [ 22.196s ]     [ 21.464s ]   [ 2.106s ]    [ .511s ]
+    40 Viz_Choropleth_Example                   [ OK ]     [ 20.499s ]     [ 19.686s ]   [ 2.248s ]    [ .532s ]
+    41 default                                  [ OK ]     [ 21.456s ]     [ 20.699s ]   [ 2.217s ]    [ .502s ]
+    42 hello                                    [ OK ]     [ 20.557s ]     [ 19.807s ]    [ .955s ]    [ .271s ]
+    43 simplesort                               [ OK ]     [ 22.910s ]     [ 22.177s ]   [ 2.019s ]    [ .519s ]
+============
+Summary (hthor):
+Total tests    :  43
+Succeeded      :  43
+Failed         :   0
+
+
+roxie-workunit
+============
+ COUNT NAME                                     RESULT        USER-END      SERVER-END      WU-EXEC      COMPILE
+     1 APPLY_Example                            [ OK ]     [ 18.351s ]     [ 17.654s ]   [ 4.096s ]    [ .650s ]
+     2 AggregateSET_Example                     [ OK ]     [ 18.853s ]     [ 17.981s ]   [ 2.378s ]    [ .703s ]
+     3 Crosstab_Example                         [ OK ]     [ 19.276s ]     [ 18.443s ]   [ 1.556s ]    [ .709s ]
+     4 DEDUP_ALL_Example                        [ OK ]     [ 19.236s ]     [ 18.495s ]   [ 2.001s ]    [ .650s ]
+     5 DEDUP_Example                            [ OK ]     [ 17.818s ]     [ 17.121s ]   [ 1.383s ]    [ .651s ]
+     6 DENORMALIZE_Example                      [ OK ]     [ 19.284s ]     [ 18.369s ]   [ 1.230s ]    [ .640s ]
+     7 DICTIONARY_Example                       [ OK ]     [ 21.584s ]     [ 20.840s ]   [ 2.933s ]    [ .810s ]
+     8 DISTRIBUTE_Example                       [ OK ]     [ 19.393s ]     [ 18.661s ]   [ 1.196s ]    [ .719s ]
+     9 ENTH_Example                             [ OK ]     [ 22.555s ]     [ 21.828s ]   [ 2.619s ]    [ .632s ]
+    10 EVALUATE_Example                         [ OK ]     [ 19.916s ]     [ 19.075s ]   [ 2.776s ]    [ .761s ]
+    11 EmbedJava                                [ OK ]     [ 24.936s ]     [ 23.891s ]   [ 5.984s ]   [ 1.020s ]
+    12 FUNCTIONMACRO_Example                    [ OK ]     [ 15.688s ]     [ 14.419s ]   [ 1.360s ]    [ .588s ]
+    13 FUNCTION_Example                         [ OK ]     [ 18.710s ]     [ 17.899s ]   [ 1.457s ]    [ .617s ]
+    14 FunctionParmPassing_Example              [ OK ]     [ 16.184s ]     [ 15.469s ]   [ 2.216s ]    [ .285s ]
+    15 GRAPH_Example                            [ OK ]     [ 20.455s ]     [ 19.729s ]   [ 1.139s ]    [ .619s ]
+    16 GROUP_Example                            [ OK ]     [ 22.017s ]     [ 21.288s ]   [ 1.773s ]    [ .687s ]
+    17 ITERATE_Example                          [ OK ]     [ 18.288s ]     [ 17.620s ]   [ 1.189s ]    [ .579s ]
+    18 JOIN_ATMOST_LIMIT_Example                [ OK ]     [ 16.320s ]     [ 15.450s ]   [ 1.456s ]    [ .644s ]
+    19 JOIN_Example                             [ OK ]     [ 20.007s ]     [ 19.293s ]   [ 1.889s ]    [ .809s ]
+    20 JOIN_dupes_example                       [ OK ]     [ 19.824s ]     [ 19.096s ]    [ .920s ]    [ .581s ]
+    21 KEYED_JOIN_Example                       [ OK ]     [ 25.167s ]     [ 24.085s ]   [ 5.714s ]   [ 1.109s ]
+    22 MACRO_Example                            [ OK ]     [ 18.208s ]     [ 17.224s ]   [ 2.456s ]    [ .600s ]
+    23 MERGEJOIN_Example                        [ OK ]     [ 20.392s ]     [ 19.729s ]   [ 1.970s ]    [ .659s ]
+    24 MERGE_Example                            [ OK ]     [ 18.145s ]     [ 17.455s ]   [ 1.345s ]    [ .586s ]
+    25 NORMALIZE_Example                        [ OK ]     [ 18.301s ]     [ 17.593s ]   [ 1.665s ]    [ .614s ]
+    26 NORM_DENORM_ChildDatasets_Example        [ OK ]     [ 16.768s ]     [ 16.054s ]   [ 1.949s ]    [ .802s ]
+    27 NormDeNormWithROW_Example                [ OK ]     [ 19.181s ]     [ 18.471s ]   [ 1.865s ]    [ .820s ]
+    28 PARSE_Example                            [ OK ]     [ 15.533s ]     [ 14.579s ]   [ 1.831s ]    [ .854s ]
+    29 PROCESS_Example                          [ OK ]     [ 21.330s ]     [ 20.603s ]   [ 1.510s ]    [ .577s ]
+    30 PROJECT_Example                          [ OK ]     [ 20.937s ]     [ 20.008s ]   [ 1.093s ]    [ .579s ]
+    31 RANGE_Example                            [ OK ]     [ 20.185s ]     [ 19.393s ]   [ 1.133s ]    [ .613s ]
+    32 ROLLUP_Example                           [ OK ]     [ 20.240s ]     [ 19.539s ]   [ 1.135s ]    [ .635s ]
+    33 ROWDIFF_Example                          [ OK ]     [ 20.127s ]     [ 19.423s ]   [ 1.199s ]    [ .628s ]
+    34 SAMPLE_Example                           [ OK ]     [ 15.936s ]     [ 15.243s ]   [ 1.775s ]    [ .670s ]
+    35 SORT_Example                             [ OK ]     [ 21.930s ]     [ 21.235s ]   [ 3.191s ]    [ .737s ]
+    36 ScopeResolutionOperator                  [ OK ]     [ 17.565s ]     [ 16.926s ]   [ 1.130s ]    [ .587s ]
+    37 SimpleJava                               [ OK ]     [ 19.776s ]     [ 18.979s ]    [ .785s ]    [ .513s ]
+    38 VARIANCE_Example                         [ OK ]     [ 21.874s ]     [ 21.158s ]   [ 2.182s ]    [ .955s ]
+    39 Viz_BarChart_Example                     [ OK ]     [ 12.900s ]     [ 12.223s ]    [ .872s ]    [ .610s ]
+    40 Viz_Choropleth_Example                   [ OK ]     [ 20.973s ]     [ 20.113s ]   [ 1.205s ]    [ .618s ]
+    41 default                                  [ OK ]     [ 17.895s ]     [ 17.216s ]    [ .900s ]    [ .578s ]
+    42 hello                                    [ OK ]     [ 17.612s ]     [ 16.947s ]    [ .531s ]    [ .286s ]
+    43 simplesort                               [ OK ]     [ 19.888s ]     [ 19.185s ]   [ 1.175s ]    [ .593s ]
+============
+Summary (roxie-workunit):
+Total tests    :  43
+Succeeded      :  43
+Failed         :   0
+
+
+thor
+============
+ COUNT NAME                                     RESULT        USER-END      SERVER-END      WU-EXEC      COMPILE
+     1 APPLY_Example                            [ OK ]     [ 37.696s ]     [ 36.599s ]  [ 21.199s ]    [ .571s ]
+     2 AggregateSET_Example                     [ OK ]     [ 32.385s ]     [ 31.454s ]  [ 18.162s ]    [ .600s ]
+     3 Crosstab_Example                         [ OK ]     [ 31.285s ]     [ 29.923s ]  [ 17.761s ]    [ .571s ]
+     4 DEDUP_ALL_Example                        [ OK ]     [ 30.599s ]     [ 29.341s ]  [ 18.323s ]    [ .550s ]
+     5 DEDUP_Example                            [ OK ]     [ 34.859s ]     [ 33.715s ]  [ 21.294s ]    [ .591s ]
+     6 DENORMALIZE_Example                      [ OK ]     [ 32.570s ]     [ 31.372s ]  [ 18.983s ]    [ .581s ]
+     7 DICTIONARY_Example                       [ OK ]     [ 40.744s ]     [ 39.804s ]  [ 26.738s ]    [ .637s ]
+     8 DISTRIBUTE_Example                       [ OK ]     [ 34.455s ]     [ 33.434s ]  [ 21.110s ]    [ .680s ]
+     9 ENTH_Example                             [ OK ]     [ 32.740s ]     [ 31.618s ]  [ 18.991s ]    [ .567s ]
+    10 EVALUATE_Example                         [ OK ]     [ 37.669s ]     [ 36.547s ]  [ 24.000s ]    [ .678s ]
+    11 EmbedJava                                [ OK ]     [ 39.036s ]     [ 38.021s ]  [ 25.002s ]    [ .725s ]
+    12 FUNCTIONMACRO_Example                    [ OK ]     [ 15.670s ]     [ 14.935s ]   [ 2.566s ]    [ .528s ]
+    13 FUNCTION_Example                         [ OK ]     [ 34.302s ]     [ 33.263s ]  [ 17.568s ]    [ .526s ]
+    14 FunctionParmPassing_Example              [ OK ]     [ 16.256s ]     [ 15.424s ]   [ 3.356s ]    [ .267s ]
+    15 GRAPH_Example                            [ OK ]     [ 34.350s ]     [ 33.408s ]  [ 17.126s ]    [ .547s ]
+    16 GROUP_Example                            [ OK ]     [ 34.762s ]     [ 33.437s ]  [ 20.037s ]    [ .607s ]
+    17 ITERATE_Example                          [ OK ]     [ 33.982s ]     [ 33.003s ]  [ 19.200s ]    [ .533s ]
+    18 JOIN_ATMOST_LIMIT_Example                [ OK ]     [ 30.393s ]     [ 29.270s ]  [ 16.322s ]    [ .567s ]
+    19 JOIN_Example                             [ OK ]     [ 47.433s ]     [ 46.280s ]  [ 33.022s ]    [ .726s ]
+    20 JOIN_dupes_example                       [ OK ]     [ 34.629s ]     [ 33.736s ]  [ 21.242s ]    [ .513s ]
+    21 KEYED_JOIN_Example                       [ OK ]     [ 56.157s ]     [ 55.221s ]  [ 42.085s ]    [ .823s ]
+    22 MACRO_Example                            [ OK ]     [ 34.945s ]     [ 33.617s ]  [ 20.087s ]    [ .552s ]
+    23 MERGEJOIN_Example                        [ OK ]     [ 33.719s ]     [ 32.666s ]  [ 20.081s ]    [ .561s ]
+    24 MERGE_Example                            [ OK ]     [ 33.177s ]     [ 32.283s ]  [ 19.948s ]    [ .516s ]
+    25 NORMALIZE_Example                        [ OK ]     [ 36.018s ]     [ 35.161s ]  [ 23.454s ]    [ .521s ]
+    26 NORM_DENORM_ChildDatasets_Example        [ OK ]     [ 31.371s ]     [ 30.060s ]  [ 17.843s ]    [ .680s ]
+    27 NormDeNormWithROW_Example                [ OK ]     [ 34.532s ]     [ 33.569s ]  [ 20.291s ]    [ .669s ]
+    28 PARSE_Example                            [ OK ]     [ 36.374s ]     [ 35.400s ]  [ 23.431s ]    [ .695s ]
+    29 PROCESS_Example                          [ OK ]     [ 33.023s ]     [ 32.222s ]  [ 19.992s ]    [ .519s ]
+    30 PROJECT_Example                          [ OK ]     [ 16.256s ]     [ 15.424s ]   [ 2.477s ]    [ .526s ]
+    31 RANGE_Example                            [ OK ]     [ 39.533s ]     [ 38.478s ]  [ 20.498s ]    [ .568s ]
+    32 ROLLUP_Example                           [ OK ]     [ 32.653s ]     [ 31.529s ]  [ 17.641s ]    [ .572s ]
+    33 ROWDIFF_Example                          [ OK ]     [ 30.621s ]     [ 29.638s ]  [ 17.571s ]    [ .578s ]
+    34 SAMPLE_Example                           [ OK ]     [ 30.457s ]     [ 29.587s ]  [ 18.971s ]    [ .553s ]
+    35 SORT_Example                             [ OK ]     [ 37.023s ]     [ 36.124s ]  [ 25.147s ]    [ .601s ]
+    36 ScopeResolutionOperator                  [ OK ]     [ 33.819s ]     [ 32.746s ]  [ 20.036s ]    [ .529s ]
+    37 SimpleJava                               [ OK ]     [ 14.160s ]     [ 13.348s ]   [ 1.086s ]    [ .472s ]
+    38 VARIANCE_Example                         [ OK ]     [ 40.014s ]     [ 38.802s ]  [ 22.129s ]    [ .677s ]
+    39 Viz_BarChart_Example                     [ OK ]     [ 15.313s ]     [ 14.437s ]   [ 1.792s ]    [ .521s ]
+    40 Viz_Choropleth_Example                   [ OK ]     [ 20.933s ]     [ 20.212s ]   [ 2.100s ]    [ .518s ]
+    41 default                                  [ OK ]     [ 19.891s ]     [ 19.085s ]   [ 1.942s ]    [ .511s ]
+    42 hello                                    [ OK ]     [ 18.835s ]     [ 18.098s ]   [ 1.479s ]    [ .266s ]
+    43 simplesort                               [ OK ]     [ 33.718s ]     [ 32.885s ]  [ 18.475s ]    [ .527s ]
+============
+Summary (thor):
+Total tests    :  43
+Succeeded      :  43
+Failed         :   0
+
+---------------------------------------------------------
+Summary:
+Total tests    : 129
+Succeeded      : 129
+Failed         :   0
+
