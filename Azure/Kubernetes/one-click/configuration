@@ -1,6 +1,8 @@
 # HPCC Settings
 #-----------------------
-DEPLOY_DIR=~/tmp
+USE_EXISTING="false" # If set to "true" ${DEPLOY_DIR} HPCC Platform will be used and 
+                     # HPCC_BRANCH will be ignored but IMAGE_VERSION, Docker image tag, still needed
+DEPLOY_DIR=~/tmp   # This should be <HPCC-Platform>/helm directory if USE_EXISTING="true"
 IMAGE_VERSION=7.12.30-1
 HPCC_BRANCH=community_7.12.30-1
 HPCC_STORAGE=default  # default, hpcc-azurefile
@@ -8,6 +10,7 @@ HPCC_CLUSTER_NAME=myhpcc
 
 
 # Kubernetes Cluster Settings
+# Make sure at least change RESOURCE_GROUP in ${KUBE_DIR}/configuration
 #-----------------------------
 KUBE_DIR=${WORK_DIR}/../one-node-pool
 #KUBE_DIR=${WORK_DIR}/../multi-node-pool-1
