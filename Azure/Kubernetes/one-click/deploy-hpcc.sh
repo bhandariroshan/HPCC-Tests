@@ -23,8 +23,8 @@ then
 else
   if [ ! -d ${DEPLOY_DIR}/hpcc/templates ]
   then
-	  "Can't find hpcc/templates in $DEPLOY_DIR . This should be HPCC helm chart directory"
-	  exit -1
+    "Can't find hpcc/templates in $DEPLOY_DIR . This should be HPCC helm chart directory"
+    exit -1
   fi
   cd ${DEPLOY_DIR}
 fi
@@ -38,4 +38,5 @@ then
 fi
 
 echo "Deploy HPCC cluster"
-helm install ${HPCC_CLUSTER_NAME} ./hpcc --set global.image.version=${IMAGE_VERSION} -f ${hpcc_azure_file}
+[ -n "$HPCC_IMAGE_NAME" ] && SET_IMG_NAME="--set global.image.name=${HPCC_IMAGE_NAME}"
+helm install ${HPCC_CLUSTER_NAME} ./hpcc --set global.image.version=${IMAGE_VERSION} ${SET_IMG_NAME}  -f ${hpcc_azure_file}

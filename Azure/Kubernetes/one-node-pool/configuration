@@ -1,6 +1,6 @@
 # Kubernetes Cluster Settings
 #-----------------------------
-RESOURCE_GROUP="aks-one-node-pool-test"
+RESOURCE_GROUP="aks-one-node-pool-test-0318"
 LOCATION="eastus"
 AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
 

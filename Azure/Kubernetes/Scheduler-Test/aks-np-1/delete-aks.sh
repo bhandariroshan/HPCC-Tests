@@ -17,4 +17,5 @@ kubectl config get-contexts | grep -q ${AKS_CONTEXT}
 if [ $? -eq 0 ]
 then
   kubectl config delete-context $AKS_CONTEXT
+  kubectl config delete-cluster $AKS_NAME
 fi

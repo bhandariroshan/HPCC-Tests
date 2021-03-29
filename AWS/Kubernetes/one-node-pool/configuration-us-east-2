@@ -1,0 +1,31 @@
+# Kubernetes Cluster Settings
+#-----------------------------
+
+#EFS_CSI_DRIVER="true"
+EFS_PROFILE_NAME="HPCC-dev-us-east-2-1"
+
+#export INPUT_EFS_CSI_DRIVER=$EFS_CSI_DRIVER
+export INPUT_EFS_PROFILE_NAME=$EFS_PROFILE_NAME
+
+#declare -A EKS_SUBNET_IDS
+#
+EKS_SUBNET_IDS=()
+EKS_SUBNET_IDS=(
+ ["us-east-2a"]="subnet-cd333fa5"
+ ["us-east-2b"]="subnet-1f8bf165"
+ ["us-east-2c"]="subnet-79e74a35"
+)
+
+VPC_SUBNETS="--vpc-public-subnets ${EKS_SUBNET_IDS['us-east-2a']} \
+--vpc-public-subnets ${EKS_SUBNET_IDS['us-east-2b']} "
+
+#TAGS="lifecycle=dev,\
+#market=us,\
+#bu=HPCC-Platform-development,\
+#owner_email=xiaoming.wang@lexisnexis.com,\
+#costcenter=ST660,\
+#product=hpccsystems,\
+#support_email=xiaoming.wang@lexisnexis.com,\
+#application=hpccsystems,\
+#service=eks,\
+#project=hpcc-platform-dev"
