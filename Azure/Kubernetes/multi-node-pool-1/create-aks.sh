@@ -1,6 +1,7 @@
 #!/bin/bash
 WORK_DIR=$(dirname $0)
 source ${WORK_DIR}/configuration
+[[ -n "$1" ]] && source $1
 
 # Create a Kubernetes Cluster
 #az aks create  $(eval echo {AKS_CREATE_OPTIONS}) 

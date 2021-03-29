@@ -1,0 +1,33 @@
+EFS_ID=fs-739f91f3
+EFS_REGION=us-east-1
+EFS_ACCESS_POINT_ID=fsap-0db6737689adc460e
+
+declare -A EFS_MOUNT_TARGET_IDS
+EFS_MOUNT_TARGET_IDS=(
+ ["us-east-1a"]="fsmt-bd2f203c"
+ ["us-east-1b"]="fsmt-bd2f203d"
+ ["us-east-1c"]="fsmt-2d2c23ac"
+ ["us-east-1d"]="fsmt-2f2c23ae"
+ ["us-east-1e"]="fsmt-2b2c23aa"
+ ["us-east-1f"]="fsmt-2e2c23af"
+)
+
+declare -A EFS_SUBNET_IDS
+EFS_SUBNET_IDS=(
+ ["us-east-1a"]="subnet-05a2f12b"
+ ["us-east-1b"]="subnet-9e08ecd3"
+ ["us-east-1c"]="subnet-eaacfdb6"
+ ["us-east-1d"]="subnet-7b72261c"
+ ["us-east-1e"]="subnet-b836ae86"
+ ["us-east-1f"]="subnet-33d7d93c"
+)
+
+declare -A EFS_SECURITY_GROUPS
+EFS_SECURITY_GROUPS=(
+ ["us-east-1a"]="sg-397a1a62"
+ ["us-east-1b"]="sg-397a1a62"
+ ["us-east-1c"]="sg-397a1a62"
+ ["us-east-1d"]="sg-397a1a62"
+ ["us-east-1e"]="sg-397a1a62"
+ ["us-east-1f"]="sg-397a1a62"
+)

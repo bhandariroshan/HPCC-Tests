@@ -1,0 +1,24 @@
+EFS_ID=fs-aa45a1d1
+EFS_REGION=us-east-2
+EFS_ACCESS_POINT_ID=fsap-01d52ed348e8c8d48
+
+declare -A EFS_MOUNT_TARGET_IDS
+EFS_MOUNT_TARGET_IDS=(
+ ["us-east-2a"]="fsmt-9d4948e4"
+ ["us-east-2b"]="fsmt-9a4948e3"
+ ["us-east-2c"]="fsmt-9b4948e2"
+)
+
+declare -A EFS_SUBNET_IDS
+EFS_SUBNET_IDS=(
+ ["us-east-2a"]="subnet-cd333fa5"
+ ["us-east-2b"]="subnet-1f8bf165"
+ ["us-east-2c"]="subnet-79e74a35"
+)
+
+declare -A EFS_SECURITY_GROUPS
+EFS_SECURITY_GROUPS=(
+ ["us-east-2a"]="sg-d19891b0"
+ ["us-east-2b"]="g-d19891b0"
+ ["us-east-2c"]="sg-d19891b0"
+)

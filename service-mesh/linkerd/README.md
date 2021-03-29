@@ -31,5 +31,10 @@ linkerd uninstall | kubectl delete -f -
 # See https://linkerd.io/2.10/tasks/graceful-shutdown/
 kubectl get deploy -o yaml | linkerd inject - | kubectl apply -f -
 ```
-Add "curl -sf -XPOST http://127.0.0.1:15020/quitquitquit" will get error in job but the job will terminiate and funcion OK
+To inject for all pods
+```sh
+kubectl annotate namespace default --overwrite linkerd.io/inject='enabled'
+
+```
+
 
