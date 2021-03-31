@@ -1,0 +1,7 @@
+#!/bin/bash
+
+WORK_DIR=$(dirname $0)
+source $WORK_DIR/aws-saml-profile
+$WORK_DIR/aws-get-saml.py > /dev/null
+
+

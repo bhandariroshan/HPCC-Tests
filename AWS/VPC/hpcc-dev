@@ -1,0 +1,5 @@
+VPC_ID=
+ROUTE_TABLE=hpcc-dev-public
+subnet_us-east-1a=subnet-0313ff28a16c6202d
+subnet_us-east-1b=subnet-00c6da41f8516f57d
+subnet_us-east-1c=subnet-052a114d7ab984231

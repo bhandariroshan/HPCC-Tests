@@ -12,7 +12,8 @@
 # eks-hpcc-1
 #server=ab619426a27cf48cc8295221b53958ba-716284310.us-east-1.elb.amazonaws.com
 
-server="20.62.178.25"
+#server="20.62.178.25"
+server="localhost"
 
 
 #ecl run thor -s ${server}  <ecl file path>
