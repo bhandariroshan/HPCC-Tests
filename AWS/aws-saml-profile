@@ -1,5 +1,6 @@
-export RISK_USERNAME=
-export RISK_PASSWORD=
-#export AWS_REGION="us-east-2"
-export AWS_REGION="us-east-1"
+export RISK_USERNAME=wangxi01
+export RISK_PASSWORD=Kong1Meng2
+export AWS_REGION="us-east-2"
+#export AWS_REGION="us-east-1"
 export AWS_PROFILE="ris-platform-dev"
+#export AWS_PROFILE="richard-aws"

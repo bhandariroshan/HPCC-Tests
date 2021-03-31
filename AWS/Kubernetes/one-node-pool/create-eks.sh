@@ -8,6 +8,7 @@ source ${AWS_DIR}/aws-saml-profile
 echo $AWS_PROFILE
 source ${WORK_DIR}/configuration
 [[ -n "$1" ]] && source $1
+[[ -n "$2" ]] && source $2
 
 # Create a Kubernetes Cluster
 echo "eksctl create cluster  -p $AWS_PROFILE \
@@ -21,6 +22,7 @@ echo "eksctl create cluster  -p $AWS_PROFILE \
   --nodes-max ${MAX_COUNT} \
   --node-volume-size ${NODE_VOLUME_SIZE} \
   --node-ami ${NODE_AMI} \
+  ${NODE_SECURITY_GROUPS} \
   ${VPC_SUBNETS} \
   --tags \"${TAGS}\""
 

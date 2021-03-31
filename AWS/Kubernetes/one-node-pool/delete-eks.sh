@@ -6,6 +6,7 @@ source ${AWS_DIR}/aws-saml-profile
 
 source ${WORK_DIR}/configuration
 [[ -n "$1" ]] && source $1 
+[[ -n "$2" ]] && source $2
 
 # Delete Kubernetes Cluster
 echo "eksctl delete cluster ${EKS_NAME} ... "
