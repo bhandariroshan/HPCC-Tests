@@ -6,10 +6,10 @@ source ${AWS_DIR}/aws-saml-profile
 [[ -n $RISK_USERNAME ]] && ${AWS_DIR}/aws-get-saml 
 echo "AWS_PROFILE: $AWS_PROFILE"
 
-EFS_PROFILE_NAME=HPCC-Dev-EFS-Test
-#EFS_PROFILE_NAME=EFS-dev-us-east-2-1
+#EFS_PROFILE_NAME=HPCC-Dev-EFS-Test
+EFS_PROFILE_NAME=EFS-dev-us-east-2-1
+[[ -n "$1" ]] && source $1
 [[ -n "${INPUT_EFS_PROFILE_NAME}" ]] && EFS_PROFILE_NAME=${INPUT_EFS_PROFILE_NAME}
-[[ -n "$1" ]] && EFS_PROFILE_NAME=$1
 source ${WORK_DIR}/${EFS_PROFILE_NAME}
 
 #for zone in "${!EFS_MOUNT_TARGET_IDS[@]}"
@@ -20,7 +20,8 @@ source ${WORK_DIR}/${EFS_PROFILE_NAME}
 EFS_NAME=efs-provisioner
 EFS_CSI_DRIVER=true
 #EKS_NAME=hpcc
-EKS_NAME=eks-one-np-us-east-1
+#EKS_NAME=eks-one-np-us-east-1
+EKS_NAME=eks-test-us-east-2
 [[ -n "${INPUT_EFS_NAME}" ]] && EFS_NAME=${INPUT_EFS_NAME}
 [[ -n "${INPUT_EKS_NAME}" ]] && EKS_NAME=${INPUT_EKS_NAME}
 [[ -n "${INPUT_CSI_DRIVER}" ]] && EFS_CSI_DRIVER=${INPUT_EFS_CSI_DRIVER}

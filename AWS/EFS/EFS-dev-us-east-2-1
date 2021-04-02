@@ -19,6 +19,6 @@ EFS_SUBNET_IDS=(
 declare -A EFS_SECURITY_GROUPS
 EFS_SECURITY_GROUPS=(
  ["us-east-2a"]="sg-d19891b0"
- ["us-east-2b"]="g-d19891b0"
+ ["us-east-2b"]="sg-d19891b0"
  ["us-east-2c"]="sg-d19891b0"
 )

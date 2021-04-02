@@ -3,3 +3,4 @@ export RISK_PASSWORD=
 #export AWS_REGION="us-east-2"
 export AWS_REGION="us-east-1"
 export AWS_PROFILE="ris-platform-dev"
+#export AWS_PROFILE="richard-aws"

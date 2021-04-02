@@ -3,7 +3,7 @@
 #These are needed for aws_get_sam1.py
 
 EKS_REGION="${AWS_REGION}"
-EKS_NAME="eks-one-np-${AWS_REGION}"
+EKS_NAME="eks-test-${AWS_REGION}"
 EFS_CSI_DRIVER="true"
 EFS_PROFILE_NAME="HPCC-Dev-EFS-Test"
 
@@ -20,6 +20,8 @@ NODE_VOLUME_SIZE=100
 NODE_AMI="auto"
 NODE_TYPE=m4.2xlarge
 NODE_GROUP_NAME="standard-workers"
+
+NODE_SECURITY_GROUPS="--node-security-groups sg-d19891b0"
 
 declare -A EKS_SUBNET_IDS
 EKS_SUBNET_IDS=(
