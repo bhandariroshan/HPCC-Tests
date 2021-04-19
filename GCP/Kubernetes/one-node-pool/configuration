@@ -1,0 +1,6 @@
+GKE_REGION="us-east1"
+GKE_ZONE="us-east1-b"
+GKE_NAME="gke-${GKE_ZONE}-ming"
+GKE_VERSION=1.19
+GCP_PROJECT=filestore-test-311020
+GCP_ACCOUNT=xwang2713@gmail.com

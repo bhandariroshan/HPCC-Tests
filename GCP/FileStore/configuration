@@ -1,0 +1,16 @@
+
+#Project ID
+GCP_PROJECT=filestore-test-311020
+# gcloud projects list
+#Project ID              Project Name          Project Number
+#hpcc-kubernates-dev     HPCC-Kubernates-Dev   674714384196
+#filestore-test-311020   FileStore-Test        1070636156789
+GCP_PROJECT_NUMBER=1070636156789
+FS_INSTANCE_ID=filestore1
+FS_VPC=default
+FS_REGION=us-east1
+FS_ZONE=us-east1-b
+#FS_IP_RANGE=10.36.0.0/16
+#FS_TIER=BASIC_HDD
+FS_TIER=STANDARD
+FS_NETWORK=default

@@ -1,0 +1,27 @@
+https://cloud.google.com/filestore/docs/creating-instances#naming_your_instance
+{
+"--file-share":
+  {
+    "capacity": "102400",
+    "name": "my_vol",
+    "nfs-export-options": [
+      {
+        "access-mode": "READ_WRITE",
+        "ip-ranges": [
+          "10.0.0.0/29",
+          "10.2.0.0/29"
+        ],
+        "squash-mode": "ROOT_SQUASH",
+        "anon_uid": 1003,
+        "anon_gid": 1003
+      },
+      {
+        "access-mode": "READ_ONLY",
+        "ip-ranges": [
+          "192.168.0.0/24"
+        ],
+        "squash-mode": "NO_ROOT_SQUASH"
+      }
+    ]
+  }
+}
