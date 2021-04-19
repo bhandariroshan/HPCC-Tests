@@ -1,0 +1,21 @@
+# -------------------
+# GCP Account
+# To find out run: gcloud config get-value core/account
+#$GCP_EMAIL_ADDRESS = "xiaoming.wang@lexisnexis.com"
+GCP_EMAIL_ADDRESS="xwang2713@gmail.com"
+USER_INITIAL="xw"
+
+BUILD_DIR=.
+CREDS_DIR="${BUILD_DIR}/creds"
+[[ ! -d ${CREDS_DIR} ]] && mkdir -p ${CREDS_DIR}
+
+TOKEN_DIR="${BUILD_DIR}/tokens"
+[[ ! -d  ${TOKEN_DIR} ]] && mkdir -p ${TOKEN_DIR}
+
+DOWNLOAD_DIR="${BUILD_DIR}/download"
+[[ ! -d $DOWNLOAD_DIR ]] && mkdir -p ${DOWNLOAD_DIR}
+
+PROJECT_ID="hpcc-kubernates-dev"
+SERVICE_ACCOUNT_NAME="service-${PROJECT_ID}"
+LOCAL_KEY_PATH="${CREDS_DIR}/${SERVICE_ACCOUNT_NAME}-${PROJECT_ID}.json"
+KUBECONFIG_PATH="~/.kube/config"
