@@ -1,5 +1,9 @@
-KUBERNETES_VERSION="1.19.6"
-SUBSCRIPTION="us-hpccplatform-dev"
+# The settings you mush change for your environment
+#______________________________________________________
+RESOURCE_GROUP="aks-scheduler-ming"
+REGION="eastus" # AKS_NAME depends on this
+AKS_NAME="aks-ming-${REGION}"
+
 TAGS=" \
   business_unit=research-and-development \
   cost_center=st660 \
@@ -14,59 +18,81 @@ TAGS=" \
   subscription_id=module.subscription.output.subscription_id \
   subcription_type=nonprod"
 
-RESOURCE_GROUP="aks-scheduler-ming"
-REGION="eastus"
-ZONES=1
-#ZONES="1 2 3"
-AKS_NAME="aks-ming-${REGION}"
-DEFAULT_NODE_VM_SIZE="Standard_D4_v3"
-DEFAULT_NODE_COUNT=2
-DEFAULT_MIN_COUNT=2
-DEFAULT_MAX_COUNT=4
-DEFAULT_AUTOSCALER="--enable-cluster-autoscaler"
-DEFAULT_NP_LABELS="vm=D4v3 name=default"
-DEFAULT_NP_NAME="defaultnp"
-DEFAULT_TAINTS=""
+# The settings you may need to change
+#______________________________________________________
+# az aks get-version --location <region>
+SUBSCRIPTION="us-hpccplatform-dev"
+KUBERNETES_VERSION="1.19.9"
 
-OS_TYPE=Linux
-GEN_SSK_KEYS="--generate-ssh-keys"
+# AKS create options include master nodes paramenters
+# Default nodepool is always in master mode
+# ZONES format: zone numbers seperated by space.
+# such as 1 or 1 2 3
+#----------------------------------------------------
 
-STORAGE_ACCOUNT="kube-scheduler-ming"
+AKS_CREATE_OPTIONS=" \
+   --generate-ssh-keys \
+   --resource-group ${RESOURCE_GROUP} \
+   --name ${AKS_NAME} \
+   --node-vm-size Standard_D4_v3 \
+   --node-count  2 \
+   --min-count 2 \
+   --max-count 4 \
+   --enable-cluster-autoscaler \
+   --enable-managed-identity \
+   --kubernetes-version ${KUBERNETES_VERSION} \
+   --zones 1 \
+   --nodepool-labels vm=D4v3 name=default \
+   --nodepool-name masternp \
+   --tags ${TAGS} \
+"
 
-# Node Pools
-#====================
-#https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/
-
-# Node Pool 1 (NP1)
-#------------------
-NP1_NAME="npone"
-NP1_LABELS="vm=D4Av4 name=${NP1_NAME}"
-#NODE_VM_SIZE="Standard_D4A_v4"
-NP1_NODE_VM_SIZE="Standard_D4A_v4"
-
-#SKU_NAME="Standard_LRS"
-NP1_SKU_NAME="Standard_LRS"
-NP1_NODE_COUNT=2
-NP1_MIN_COUNT=2
-NP1_MAX_COUNT=4
-
-NP1_TAINTS=""
-NP1_AUTOSCALER="--enable-cluster-autoscaler"
-
-
-# Node Pool 2 (NP2) 
-#------------------
-NP2_NAME="nptwo"
-NP2_LABELS="name=${NP2_NAME} test=taint"
-
-#https://docs.microsoft.com/en-us/azure/aks/gpu-cluster
-NP2_NODE_VM_SIZE="Standard_D4A_v4"
-
-NP2_SKU_NAME="Standard_LRS"
-NP2_NODE_COUNT=2
-NP2_MIN_COUNT=2
-NP2_MAX_COUNT=4
-
-#--aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
-NP2_TAINTS="--node-taints name=nptwo:NoSchedule"
-NP2_AUTOSCALER="--enable-cluster-autoscaler"
+# Node Pools$
+#-----------------------------------------------------
+declare -a node_pools
+node_pools=(
+  "--name npone \
+   --resource-group ${RESOURCE_GROUP} \
+   --cluster-name ${AKS_NAME} \
+   --kubernetes-version ${KUBERNETES_VERSION} \
+   --labels sku=D4Av4 name=npone \
+   --os-type Linux \
+   --zones 1 2 \
+   --node-vm-size Standard_D4A_v4 \
+   --node-count 2 \
+   --min-count 2 \
+   --max-count 4 \
+   --mode user \
+   --enable-cluster-autoscaler \
+  "
+  "--name nptwo \
+   --resource-group ${RESOURCE_GROUP} \
+   --cluster-name ${AKS_NAME} \
+   --kubernetes-version ${KUBERNETES_VERSION} \
+   --labels sku=NC4asT4v3 name=nptwo test=taint \
+   --os-type Linux \
+   --zones 1 \
+   --node-vm-size Standard_F8s_v2 \
+   --node-count 2 \
+   --min-count 2 \
+   --max-count 4 \
+   --mode user \
+   --node-taints gpu=true:NoSchedule \
+   --enable-cluster-autoscaler \
+  "
+  "--name npthree \
+   --resource-group ${RESOURCE_GROUP} \
+   --cluster-name ${AKS_NAME} \
+   --kubernetes-version ${KUBERNETES_VERSION} \
+   --labels sku=D13v4 name=npthree \
+   --os-type Linux \
+   --zones 1 2 \
+   --node-vm-size Standard_D13_v2 \
+   --node-count 2 \
+   --min-count 2 \
+   --max-count 4 \
+   --mode user \
+   --enable-cluster-autoscaler \
+  "
+)
+#--node-vm-size Standard_NC4as_T4_v3 \

@@ -1,4 +1,4 @@
-# The settings you mush chnage for your environment
+# The settings you mush change for your environment
 #______________________________________________________ 
 TAGS=" \
   business_unit=research-and-development \
@@ -15,13 +15,15 @@ TAGS=" \
   subcription_type=nonprod"
 
 RESOURCE_GROUP="aks-multi-node-pools"
-REGION="eastus"
+REGION="eastus" # AKS_NAME depends on this
 AKS_NAME="aks-${REGION}"
 
-# The settings you may need to chnage
-#______________________________________________________ 
-KUBERNETES_VERSION="1.19.6"
+# The settings you may need to change
+#______________________________________________________
+# az aks get-versions --location eastus
+KUBERNETES_VERSION="1.19.9"
 SUBSCRIPTION="us-hpccplatform-dev"
+ZONE=1
 
 # AKS create options include master nodes paramenters
 # Default nodepool is always in master mode
@@ -39,14 +41,14 @@ AKS_CREATE_OPTIONS=" \
    --enable-cluster-autoscaler \
    --enable-managed-identity \
    --kubernetes-version ${KUBERNETES_VERSION} \
-   --zones 1 \
+   --zones $ZONE \
    --nodepool-labels vm=D4v3 name=default \
    --nodepool-name masternp \
    --tags ${TAGS} \
 "
 
 # Node Pools
-#====================
+#-----------------------------------------------------
 #https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/
 
 declare -a node_pools
