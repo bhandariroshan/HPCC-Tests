@@ -30,9 +30,9 @@ az aks create  ${GEN_SSK_KEYS} \
    --max-count ${MAX_COUNT} \
    --enable-cluster-autoscaler \
    --enable-managed-identity \
-   --kubernetes-version $KUBERNETES_VERSION \
    --location $LOCATION
 
+# --kubernetes-version $KUBERNETES_VERSION \
 # Register Kubernetes cluster to local configure file
 az aks get-credentials \
    --resource-group $RESOURCE_GROUP \
