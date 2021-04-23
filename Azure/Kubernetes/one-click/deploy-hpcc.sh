@@ -37,8 +37,6 @@ then
   hpcc_azure_file=examples/azure/values-retained-azurefile.yaml
 fi
 
-sed -i -e "/root/s/hpccsystems/${DOCKER_ROOT_REPO}/" ${DEPLOY_DIR}/HPCC-Platform/helm/hpcc/values.yaml #replaces the default root repo value to the user's input
-
 echo "Deploy HPCC cluster"
 [ -n "$HPCC_IMAGE_NAME" ] && SET_IMG_NAME="--set global.image.name=${HPCC_IMAGE_NAME}"
 helm install ${HPCC_CLUSTER_NAME} ./hpcc --set global.image.root=${IMGAGE_ROOT} --set global.image.version=${IMAGE_VERSION} ${SET_IMG_NAME}  -f ${hpcc_azure_file}
