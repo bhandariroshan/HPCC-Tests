@@ -1,6 +1,7 @@
 #!/bin/bash
 WORK_DIR=$(dirname $0)
 source ${WORK_DIR}/configuration
+[[ -n "$STORAGE_DIR" ]] &&  source ${WORK_DIR}/../../Storage/${STORAGE_DIR}/configuration
 [[ -n "$1" ]] && source $1
 
 # Create a Kubernetes Cluster
@@ -15,13 +16,11 @@ az aks get-credentials \
    --admin \
    --overwrite-existing
 
-# Create Storage Account
-#$rc = $(az storage account check-name --name ${storage_account} | select-string  "nameAvailable" | select-string "true")
-#if ( ${rc} -ne $null)
-#{
-#   az storage account create `
-#      --name $storage_account `
-#      --resource_group $resource_group `
-#      --location $location `
-#      --sku $sku_name
-#}
+if [[ -n "$STORAGE_DIR" ]]
+then
+  echo "create secret $SECRET_NAME"
+  account_key=$(cat ${KEY_DIR}/${SHARE_NAME}.key | cut -d':' -f2 | sed 's/[[:space:]]\+//g')
+  kubectl create secret generic $SECRET_NAME \
+    --from-literal=azurestorageaccountname=${STORAGE_ACCOUNT_NAME} \
+    --from-literal=azurestorageaccountkey=${account_key}
+fi

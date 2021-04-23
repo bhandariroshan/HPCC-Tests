@@ -84,3 +84,7 @@ node_pools=(
 )
 
 #--node-taints name=nptwo:NoSchedule
+# For create secret if use storage account. Assume the directory is under Azure/Storage/
+# #STORAGE_DIR=
+STORAGE_DIR=azurefile-sa
+SECRET_NAME=azure-secret
