@@ -1,6 +1,6 @@
 # Kubernetes Cluster Settings
 #-----------------------------
-RESOURCE_GROUP="aks-test-ming"
+RESOURCE_GROUP="aks-1nodepool-sa-ming"
 LOCATION="eastus"
 AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
 
@@ -25,4 +25,8 @@ TAGS="business_unit=research-and-development \
       subcription_type=nonprod"
 
 SKU_NAME="Standard_LRS"
+# For create secret if use storage account. Assume the directory is under Azure/Storage/
+#STORAGE_DIR=
+STORAGE_DIR=azurefile-sa
+SECRET_NAME=azure-secret
 

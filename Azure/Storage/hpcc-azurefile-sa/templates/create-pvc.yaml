@@ -1,0 +1,17 @@
+{{- range $plane := .Values.planes -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s-pvc" $plane.name (include "hpcc-azurefile.fullname" $) }}
+spec:
+  accessModes:
+  - {{ $plane.rwmany | default false | ternary "ReadWriteMany" "ReadWriteOnce" }}
+  storageClassName: ""
+  resources:
+    requests:
+      storage: {{ $plane.size }}
+  selector:
+    matchLabels:
+      store: {{ printf "%s-%s-pv" $plane.name (include "hpcc-azurefile.fullname" $) }}
+---
+{{ end }}
