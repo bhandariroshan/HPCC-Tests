@@ -8,8 +8,8 @@ echo "AWS_PROFILE: $AWS_PROFILE"
 
 #EFS_PROFILE_NAME=HPCC-Dev-EFS-Test
 EFS_PROFILE_NAME=EFS-dev-us-east-2-1
+[[ -n "$1" ]] && source $1
 [[ -n "${INPUT_EFS_PROFILE_NAME}" ]] && EFS_PROFILE_NAME=${INPUT_EFS_PROFILE_NAME}
-[[ -n "$1" ]] && EFS_PROFILE_NAME=$1
 source ${WORK_DIR}/${EFS_PROFILE_NAME}
 
 #for zone in "${!EFS_MOUNT_TARGET_IDS[@]}"

@@ -1,11 +1,12 @@
 #!/bin/bash
 WORK_DIR=$(dirname $0)
+WORK_DIR=$(cd ${WORK_DIR};  pwd); cd $WORK_DIR
 source ${WORK_DIR}/configuration
 
 # Deploy EFS 
 #-----------------------------
-echo "${EFS_DIR}/deploy-efs.sh"
-${EFS_DIR}/deploy-efs.sh
+echo "${EFS_DIR}/deploy-efs.sh ${WORK_DIR}/configuration"
+#${EFS_DIR}/deploy-efs.sh ${WORK_DIR}/configuration
 
 # Get HPCC Platform source
 #-----------------------------

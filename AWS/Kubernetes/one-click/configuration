@@ -15,6 +15,8 @@ HPCC_CLUSTER_NAME=myhpcc
 # ----------------------
 EFS_DIR=${WORK_DIR}/../../EFS
 export INPUT_EFS_PROFILE_NAME=HPCC-Dev-EFS-Test
+#export INPUT_EFS_PROFILE_NAME="EFS-dev-us-east-2-1"
+export INPUT_EFS_CSI_DRIVER="true"
 
 # EKS configuration
 # ----------------------
@@ -27,13 +29,8 @@ EKS_DIR=${WORK_DIR}/../one-node-pool
 # Following will overwrite primary EKS and additional settings
 EKS_REGION="${AWS_REGION}"
 EKS_NAME="one-click-${AWS_REGION}"
-EFS_CSI_DRIVER="true"
-EFS_PROFILE_NAME="HPCC-Dev-EFS-Test"
-
 export INPUT_EKS_REGION=$EKS_REGION
 export INPUT_EKS_NAME=$EKS_NAME
-export INPUT_EFS_CSI_DRIVER=$EFS_CSI_DRIVER
-export INPUT_EFS_PROFILE_NAME=$EFS_PROFILE_NAME
 
 
 #KUBERNETES_VERSION="1.19"

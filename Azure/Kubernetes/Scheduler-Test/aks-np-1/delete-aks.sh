@@ -2,6 +2,8 @@
 
 WORK_DIR=$(dirname $0)
 source ${WORK_DIR}/configuration
+[[ -n "$1" ]] && source $1
+
 # Set subscription
 az account set --subscription $SUBSCRIPTION
 

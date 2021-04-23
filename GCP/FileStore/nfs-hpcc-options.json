@@ -1,0 +1,26 @@
+{
+"--file-share":
+  {
+    "capacity": "1024GB",
+    "name": "hpccdata",
+    "nfs-export-options": [
+       {
+         "access-mode": "READ_WRITE",
+         "ip-ranges": [
+           "10.36.0.0/14"
+         ],
+         "squash-mode": "ROOT_SQUASH",
+         "anon_uid": 10000,
+         "anon_gid": 10001
+      },
+      {
+
+        "access-mode": "READ_WRITE",
+        "ip-ranges": [
+        "192.168.0.0/24"
+        ],
+        "squash-mode": "NO_ROOT_SQUASH"
+      }
+    ]
+  }
+}
