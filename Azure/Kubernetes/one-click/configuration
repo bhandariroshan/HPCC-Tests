@@ -7,7 +7,11 @@ IMAGE_VERSION=8.0.x-2021-04-21-d
 HPCC_BRANCH=community_8.0.6-1
 HPCC_STORAGE=default  # default, hpcc-azurefile
 HPCC_CLUSTER_NAME=myhpcc
+<<<<<<< HEAD
 IMAGE_ROOT=godji
+=======
+DOCKER_ROOT_REPO=godji
+>>>>>>> 4ab72d3 (HPCC-25771 Add the ability to set a different Docker root repo other than hpccsystems.)
 #HPCC_IMAGE_NAME=platform-gnn
 
 
