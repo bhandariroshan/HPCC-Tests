@@ -7,7 +7,7 @@ IMAGE_VERSION=8.0.x-2021-04-21-d
 HPCC_BRANCH=community_8.0.6-1
 HPCC_STORAGE=default  # default, hpcc-azurefile
 HPCC_CLUSTER_NAME=myhpcc
-DOCKER_ROOT_REPO=godji
+IMAGE_ROOT=godji
 #HPCC_IMAGE_NAME=platform-gnn
 
 
