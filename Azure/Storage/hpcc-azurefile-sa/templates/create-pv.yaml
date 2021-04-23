@@ -1,0 +1,26 @@
+{{- range $plane := .Values.planes -}}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ printf "%s-%s-pv" $plane.name (include "hpcc-azurefile.fullname" $) }}
+  labels:
+    store: {{ printf "%s-%s-pv" $plane.name (include "hpcc-azurefile.fullname" $) }}
+spec:
+  capacity:
+    storage: {{ $plane.size }}
+  accessModes:
+    - {{ $plane.rwmany | default false | ternary "ReadWriteMany" "ReadWriteOnce" }}
+  azureFile:
+    secretName: azure-secret
+    secretNamespace: default
+    shareName: akstestshare
+    readOnly: false
+  mountOptions:
+  - uid=10000 # uid of user 'hpcc'
+  - gid=10001 # gid of group 'hpcc'
+  - dir_mode=0777 # user read/write/execute
+  - file_mode=0777 # user read/write
+  - mfsymlinks
+  - nobrl
+---
+{{ end }}

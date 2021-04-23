@@ -1,0 +1,9 @@
+SUBSCRIPTION="us-hpccplatform-dev"
+STORAGE_ACCOUNT_NAME=azurefilesaming
+SA_RESOURCE_GROUP=sa-rg-ming
+SA_LOCATION=eastus
+SHARE_NAME=akstestshare
+SA_SKU=Standard_LRS
+KEY_DIR=~/.azure/storage
+# 1024GB
+STORAGE_QUOTE=1024
