@@ -26,7 +26,7 @@ TAGS="business_unit=research-and-development \
 
 SKU_NAME="Standard_LRS"
 # For create secret if use storage account. Assume the directory is under Azure/Storage/
-#STORAGE_DIR=
-STORAGE_DIR=azurefile-sa
+STORAGE_DIR=
+#STORAGE_DIR=azurefile-sa
 SECRET_NAME=azure-secret
 

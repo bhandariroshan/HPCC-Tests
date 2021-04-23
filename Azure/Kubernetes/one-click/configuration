@@ -22,3 +22,6 @@ KUBE_DIR=${WORK_DIR}/../one-node-pool
 RESOURCE_GROUP="one-click-godji"
 LOCATION="eastus"
 AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
+
+# Use storage account share for storage
+STORAGE_DIR=azurefile-sa

@@ -30,11 +30,21 @@ else
 fi
 
 hpcc_azure_file=examples/azure/values-auto-azurefile.yaml
-if [ "${HPCC_STORAGE}" = "hpcc-azurefile" ]
+if [[ -n "$STORAGE_DIR" ]]
 then
-  echo "Deploy HPCC storage ${HPCC_STORAGE}"
-  helm install azstorage hpcc-azurefile/*
-  hpcc_azure_file=examples/azure/values-retained-azurefile.yaml
+    echo "Deploy HPCC storage hpcc-azurefile-sa"
+    cur_dir=$(pwd)
+    cd ${WORK_DIR}/../../Storage/${STORAGE_DIR}
+    helm install azstorage hpcc-azurefile-sa/*
+    hpcc_azure_file=examples/azure/values-retained-azurefile.yaml
+    cd $cur_dir
+else
+  if [ "${HPCC_STORAGE}" = "hpcc-azurefile" ]
+  then
+    echo "Deploy HPCC storage ${HPCC_STORAGE}"
+    helm install azstorage hpcc-azurefile/*
+    hpcc_azure_file=examples/azure/values-retained-azurefile.yaml
+fi
 fi
 
 echo "Deploy HPCC cluster"
