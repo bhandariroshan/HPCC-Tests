@@ -36,7 +36,7 @@ then
     cur_dir=$(pwd)
     cd ${WORK_DIR}/../../Storage/
     pwd
-    ls -a hpcc-azurefile-sa
+    ls -d hpcc-azurefile-sa
     helm install azstorage ./hpcc-azurefile-sa
     hpcc_azure_file=examples/azure/values-retained-azurefile.yaml
     cd $cur_dir

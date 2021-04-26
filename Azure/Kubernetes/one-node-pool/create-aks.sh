@@ -14,6 +14,12 @@ then
      GEN_SSK_KEYS="--generate-ssh-keys"
 fi
 
+if [[ -z "$RESOURCE_GROUP" ]]
+then
+  echo "Missing resource group"
+  exit 1
+fi
+
 # Create Resource Group
 rc=$(az group exists --name $RESOURCE_GROUP)
 if [ "$rc" = "true" ]
