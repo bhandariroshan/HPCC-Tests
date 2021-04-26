@@ -1,5 +1,5 @@
 SUBSCRIPTION="us-hpccplatform-dev"
-STORAGE_ACCOUNT_NAME=azurefilesaming
+STORAGE_ACCOUNT_NAME=sort-azurefilesa
 SA_RESOURCE_GROUP=sa-rg-ming
 SA_LOCATION=eastus
 SHARE_NAME=akstestshare
