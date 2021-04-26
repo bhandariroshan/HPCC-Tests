@@ -3,11 +3,11 @@
 USE_EXISTING="false" # If set to "true" ${DEPLOY_DIR} HPCC Platform will be used and 
                      # HPCC_BRANCH will be ignored but IMAGE_VERSION, Docker image tag, still needed
 DEPLOY_DIR=~/tmp   # This should be <HPCC-Platform>/helm directory if USE_EXISTING="true"
-IMAGE_VERSION=8.0.x-2021-04-21-d
+IMAGE_VERSION=8.0.6-1
 HPCC_BRANCH=community_8.0.6-1
 HPCC_STORAGE=default  # default, hpcc-azurefile
 HPCC_CLUSTER_NAME=myhpcc
-DOCKER_ROOT_REPO=godji
+DOCKER_ROOT_REPO=hpccsystems
 #HPCC_IMAGE_NAME=platform-gnn
 
 
@@ -19,9 +19,10 @@ KUBE_DIR=${WORK_DIR}/../one-node-pool
 #
 #KUBERNETES_VERSION="1.19.6"
 #SUBSCRIPTION="us-hpccplatform-dev"
-RESOURCE_GROUP="one-click-godji"
+RESOURCE_GROUP="one-click-ming-0426-2"
 LOCATION="eastus"
 AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
 
 # Use storage account share for storage
+#STORAGE_DIR=
 STORAGE_DIR=azurefile-sa
