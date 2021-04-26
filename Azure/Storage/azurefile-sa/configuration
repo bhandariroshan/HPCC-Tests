@@ -1,6 +1,6 @@
 SUBSCRIPTION="us-hpccplatform-dev"
-STORAGE_ACCOUNT_NAME=sort-azurefilesa
-SA_RESOURCE_GROUP=sa-rg-ming
+STORAGE_ACCOUNT_NAME=sortazurefilesa
+SA_RESOURCE_GROUP=sort-sa-rg
 SA_LOCATION=eastus
 SHARE_NAME=akstestshare
 SA_SKU=Standard_LRS
