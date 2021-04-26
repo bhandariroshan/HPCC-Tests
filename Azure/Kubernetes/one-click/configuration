@@ -19,7 +19,7 @@ KUBE_DIR=${WORK_DIR}/../one-node-pool
 #
 #KUBERNETES_VERSION="1.19.6"
 #SUBSCRIPTION="us-hpccplatform-dev"
-RESOURCE_GROUP="one-click-godji"
+RESOURCE_GROUP="sort-one-click"
 LOCATION="eastus"
 AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
 
