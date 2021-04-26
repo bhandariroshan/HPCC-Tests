@@ -19,10 +19,10 @@ KUBE_DIR=${WORK_DIR}/../one-node-pool
 #
 #KUBERNETES_VERSION="1.19.6"
 #SUBSCRIPTION="us-hpccplatform-dev"
-RESOURCE_GROUP="one-click-ming-0426-2"
+RESOURCE_GROUP=
 LOCATION="eastus"
 AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
 
 # Use storage account share for storage
-#STORAGE_DIR=
-STORAGE_DIR=azurefile-sa
+STORAGE_DIR=
+#STORAGE_DIR=azurefile-sa
