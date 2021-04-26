@@ -34,8 +34,10 @@ if [[ -n "$STORAGE_DIR" ]]
 then
     echo "Deploy HPCC storage hpcc-azurefile-sa"
     cur_dir=$(pwd)
-    cd ${WORK_DIR}/../../Storage/${STORAGE_DIR}
-    helm install azstorage hpcc-azurefile-sa/*
+    cd ${WORK_DIR}/../../Storage/
+    pwd
+    ls -a hpcc-azurefile-sa
+    helm install azstorage ./hpcc-azurefile-sa
     hpcc_azure_file=examples/azure/values-retained-azurefile.yaml
     cd $cur_dir
 else

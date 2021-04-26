@@ -1,8 +1,8 @@
 #!/bin/bash
 WORK_DIR=$(dirname $0)
 source ${WORK_DIR}/configuration
-[[ -n "$STORAGE_DIR" ]] &&  source ${WORK_DIR}/../../Storage/${STORAGE_DIR}/configuration
 [[ -n "$1" ]] && source $1
+[[ -n "$STORAGE_DIR" ]] &&  source ${WORK_DIR}/../../Storage/${STORAGE_DIR}/configuration
 
 
 # Set subscription
