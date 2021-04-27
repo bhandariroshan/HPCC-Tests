@@ -1,8 +1,8 @@
 #!/bin/bash
 WORK_DIR=$(dirname $0)
 source ${WORK_DIR}/configuration
-[[ -n "$STORAGE_DIR" ]] &&  source ${WORK_DIR}/../../Storage/${STORAGE_DIR}/configuration
 [[ -n "$1" ]] && source $1
+[[ -n "$STORAGE_DIR" ]] &&  source ${WORK_DIR}/../../Storage/${STORAGE_DIR}/configuration
 
 
 # Set subscription
@@ -12,6 +12,12 @@ az account set --subscription $SUBSCRIPTION
 if [ ! -e ~/.ssh/id_rsa ] || [ ! -e ~/.ssh/id_rsa.pub ]  
 then
      GEN_SSK_KEYS="--generate-ssh-keys"
+fi
+
+if [[ -z "$RESOURCE_GROUP" ]]
+then
+  echo "Missing resource group"
+  exit 1
 fi
 
 # Create Resource Group

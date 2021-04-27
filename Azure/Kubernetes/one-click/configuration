@@ -2,14 +2,15 @@
 #-----------------------
 USE_EXISTING="true" # If set to "true" ${DEPLOY_DIR} HPCC Platform will be used and 
                      # HPCC_BRANCH will be ignored but IMAGE_VERSION, Docker image tag, still needed
+
 DEPLOY_DIR=/home/sort/ln/HPCC-Platform/helm   # This should be <HPCC-Platform>/helm directory if USE_EXISTING="true"
 IMAGE_VERSION=latest
 HPCC_BRANCH=community_8.0.6-1
 HPCC_STORAGE=default  # default, hpcc-azurefile
 HPCC_CLUSTER_NAME=myhpcc
+DOCKER_ROOT_REPO=hpccsystems
 IMAGE_ROOT=stuartort
 #HPCC_IMAGE_NAME=platform-gnn
-
 
 # Kubernetes Cluster Settings
 # Make sure at least change RESOURCE_GROUP in ${KUBE_DIR}/configuration
@@ -24,4 +25,5 @@ LOCATION="eastus"
 AKS_NAME="${RESOURCE_GROUP}-${LOCATION}"
 
 # Use storage account share for storage
-STORAGE_DIR=azurefile-sa
+STORAGE_DIR=
+#STORAGE_DIR=azurefile-sa

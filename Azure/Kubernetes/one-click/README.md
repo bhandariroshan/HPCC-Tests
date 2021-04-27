@@ -8,6 +8,9 @@ You should change at least RESOURCE_GROUP varialbe in above file
 
 To use existing HPCC-Platform set USE_EXISTING="true" in current directory configuration file. Be ware in this case "DEPLOY_DIR" should be HPCC helm directory, for example, ~/work/HPCC-Platform/helm".:
 
+To use storage created by storage account: 
+- go to Azure/Storage/hpcc-azurefile
+
 ## Deploy
 ./start.sh
 
