@@ -1,6 +1,6 @@
 # HPCC Settings
 #-----------------------
-USE_EXISTING="true" # If set to "true" ${DEPLOY_DIR} HPCC Platform will be used and 
+USE_EXISTING="false" # If set to "true" ${DEPLOY_DIR} HPCC Platform will be used and 
                      # HPCC_BRANCH will be ignored but IMAGE_VERSION, Docker image tag, still needed
 DEPLOY_DIR=~/tmp/HPCC-Platform/helm   # This should be <HPCC-Platform>/helm directory if USE_EXISTING="true"
 IMAGE_VERSION=8.0.6-1
