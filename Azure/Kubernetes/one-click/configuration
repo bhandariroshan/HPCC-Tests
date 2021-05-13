@@ -3,11 +3,11 @@
 USE_EXISTING="true" # If set to "true" ${DEPLOY_DIR} HPCC Platform will be used and 
                      # HPCC_BRANCH will be ignored but IMAGE_VERSION, Docker image tag, still needed
 DEPLOY_DIR=~/tmp/HPCC-Platform/helm   # This should be <HPCC-Platform>/helm directory if USE_EXISTING="true"
-IMAGE_VERSION=8.0.x-2021-04-25-d
+IMAGE_VERSION=8.0.6-1
 HPCC_BRANCH=community_8.0.6-1
 HPCC_STORAGE=default  # default, hpcc-azurefile
 HPCC_CLUSTER_NAME=myhpcc
-IMAGE_ROOT=godji
+IMAGE_ROOT=hpccsystems
 #HPCC_IMAGE_NAME=platform-gnn
 
 
